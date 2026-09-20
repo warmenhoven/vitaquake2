@@ -59,6 +59,11 @@ void     QGL_Shutdown( void );
 #define GLclampd GLdouble
 #endif
 
+#if defined(__LIBRETRO__) && defined(__MINGW32__) && defined(__i386__)
+#  undef APIENTRY
+#  define APIENTRY
+#endif
+
 extern void glVertexAttribPointerMapped(int id, void* ptr);
 
 extern  void ( APIENTRY * qglBlendFunc )(GLenum sfactor, GLenum dfactor);
